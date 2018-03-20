@@ -10,7 +10,7 @@ django = "*"
 gunicorn = "*"
 django-heroku = "*"
 djangorestframework = "*"
-
+mongoengine = "*"
 
 [requires]
 
