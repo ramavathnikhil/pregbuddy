@@ -1,0 +1,1 @@
+web: gunicorn pregbuddy.wsgi --log-file -
