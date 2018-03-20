@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 
-from api.serializers import UserSerializer, GroupSerializer, AuthorSerializer, BucketlistSerializer
-from .models import Author
+from api.serializers import UserSerializer, GroupSerializer, AuthorSerializer, BucketlistSerializer, TopicSerializer
+from .models import Author, Topic
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -36,4 +36,14 @@ class CreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         """Save the post data when creating a new bucketlist."""
+        serializer.save()
+
+
+class TopicsView(generics.ListCreateAPIView):
+    """This class defines the create behavior of our rest api."""
+    queryset = Topic.objects.all()
+    serializer_class = TopicSerializer
+
+    def perform_create(self, serializer):
+        """Save the post data when creating a new topic."""
         serializer.save()

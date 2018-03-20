@@ -15,13 +15,16 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
+
 class AuthorSerializer(serializers.ModelSerializer):
     """
     Serializing all the Authors
     """
+
     class Meta:
         model = Author
         fields = ('id', 'first_name', 'last_name')
+
 
 class BucketlistSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
@@ -30,4 +33,14 @@ class BucketlistSerializer(serializers.ModelSerializer):
         """Meta class to map serializer's fields with the model fields."""
         model = Author
         fields = ('id', 'name', 'date_created', 'date_modified')
+        read_only_fields = ('date_created', 'date_modified')
+
+
+class TopicSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Author
+        fields = ('id', 'topic_text', 'user_id', 'date_created', 'date_modified')
         read_only_fields = ('date_created', 'date_modified')
