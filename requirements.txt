@@ -23,7 +23,7 @@ matplotlib==2.1.0
 mongoengine==0.15.0
 numpy==1.13.3
 opencv-python==3.3.0.10
-protobuf==3.5.1
+protobuf==3.18.3
 pyasn1==0.4.2
 pyasn1-modules==0.2.1
 pycosat==0.6.2
